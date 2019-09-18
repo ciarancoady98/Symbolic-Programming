@@ -1,0 +1,34 @@
+Student Name : Ciaran Coady
+Student Number : 17326951
+Chapter : 2
+
+Exercise 2.1
+1. true
+2. false
+3. true
+4. Bread is a variable so this will assign Bread = bread, as bread is an atom
+5. false
+6. false
+7. X = food(bread)
+8. X = bread
+9. X = sausage, Y = bread
+10. false
+11. false
+12. X = food(food(food(...)))
+13. X = food(bread), Y = drink(beer)
+14. false
+
+Exercise 2.2
+1. false
+2. false
+3. false
+4. true
+5. because in the magic(Hermoine), Hermoine is a variable, we can think of it as 
+popping in an X, Therefore Hermoine = dobby; Hermoine = hermoine, Hermoine = 'McGonagall',
+Hermoine = rita_skeeter.
+
+Exercise 2.3
+Added the knowledge base to kb2 and ran the query sentence(A,B,C,D). this gave me a possible
+result, then using ; i could see the other possibilities.
+
+Exercise 2.4

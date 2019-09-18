@@ -1,4 +1,5 @@
 The command listing will list the entire knowledge base that prolog currently has loaded.
 
 If you use the listing command and pass in a parameter e.g. listing(listens2Music) then
-prolog will return occurences of listens2Music
+prolog will return occurences of listens2Music.
+
