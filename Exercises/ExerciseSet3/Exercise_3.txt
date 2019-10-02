@@ -1,0 +1,20 @@
+Exercise 3.1
+
+This would be problematic as after the first clause is satisfied (descend(X,Y):-child(X,Y)) 
+then the second clause will just recursively call itself with an arbitrary variable
+with each nesting of recursion generating a new variable (z1, z2, z3 ....), where 
+this variable becomes the first thing in the knowledge base that statisfies the clause.
+in this case it will be the first two things that satisfies child(X,Y).
+
+knowledge base kb1
+
+Exercise 3.2
+
+Answered with knowledge base kb2
+
+Exercise 3.3
+
+Answered with knowledge base kb3
+
+Exercise 3.4
+
