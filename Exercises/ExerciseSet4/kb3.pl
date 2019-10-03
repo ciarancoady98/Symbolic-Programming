@@ -9,3 +9,4 @@ tran(acht,eight).
 tran(neun,nine).
 
 listtran([],[]).
+listtran([H1|T1],[H2|T2]):-tran(H1,H2),listran(T1,T2).
