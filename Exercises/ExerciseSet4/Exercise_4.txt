@@ -22,18 +22,19 @@ Exercise 4.2
 8. yes
 
 Exercise 4.3
-Answered with kb1
+Answered with knowledge base kb1
 
 Exercise 4.4
-Answered with kb2
+Answered with knowledge base kb2
 
 Exercise 4.5
-Answered with kb3
+Answered with knowledge base kb3
 
 Exercise 4.6
-Answered with kb4
+Answered with knowledge base kb4
 
 Exercise 4.7
+
 First Query
 |-------------------------|
 |   member(a,[c,b,a,y])   |
@@ -53,6 +54,9 @@ First Query
 |-------------------------|
 |     member(a,[a,y])     |
 |-------------------------|
+            |
+            |
+           Yes
 
 Second Query
 |-------------------------|
@@ -78,24 +82,27 @@ Second Query
           R.I.P
 
 Third Query
-|-------------------------|
-|    member(X,[a,b,c])    |
-|-------------------------|
-            |
-            |   X=a
-|-------------------------|
-|     member(X,[b,c])     |
-|-------------------------|
-            |
-            |   X=b
-|-------------------------|
-|       member(X,[c])     |
-|-------------------------|
-            |
-            |   X=c
-|-------------------------|
-|       member(X,[])      |
-|-------------------------|
-            |
-            |
-          R.I.P
+                        |-------------------------|
+                        |    member(X,[a,b,c])    |
+                        |-------------------------|
+                        /           \
+                    /                   \
+                /                           \   
+            X=a                     |-------------------------|
+                                    |     member(X,[b,c])     |
+                                    |-------------------------|
+                                    /                   \
+                                X=b                         \
+                                                                \   
+                                                    |-------------------------|
+                                                    |       member(X,[c])     |
+                                                    |-------------------------|
+                                                    /           \
+                                                X=c                 \
+                                                                        \   
+                                                            |-------------------------|
+                                                            |       member(X,[])      |
+                                                            |-------------------------|
+                                                                        |
+                                                                        |
+                                                                      R.I.P
