@@ -1,0 +1,1 @@
+greater_than(X,Y):-
