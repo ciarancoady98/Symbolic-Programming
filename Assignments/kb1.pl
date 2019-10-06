@@ -1,8 +1,8 @@
 numeral(0).
 numeral(s(X)) :- numeral(X).
 numeral(X+Y):-numeral(X),numeral(Y).
-add(0,X,X).
-add(s(X),Y,s(Z)) :- add(X,Y,Z).
-add2(A+B,C+D,E):-add(A,B,F),add(C,D,G),add(F,G,E).
-add2(X+Y,Z,B):-add(X,Y,A),add(A,Z,B).
-add2(X,Y+Z,B):-add(Y,Z,A),add(A,X,B).
+add2(0,0,0).
+add2(0,A,B):-add2(A,0,B).
+add2(s(X),Y,s(Z)) :- add2(X,Y,Z).
+add2(s(A+B),C,s(D)) :- add2(A+B,C,D).
+add2(A+B,C,D) :- add2(A,B,E),add2(E,C,D).
