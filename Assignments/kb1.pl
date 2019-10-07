@@ -12,3 +12,7 @@ add2(s(A+B),C,s(D)) :- add2(A+B,C,D).
 add2(A+B,C,D) :- add2(A,B,E),add2(E,C,D).
 
 minus(0,Z):-Z=0.
+minus(s(p(X)),Z):-minus(X,Z).
+minus(p(s(X)),Z):-minus(X,Z).
+minus(s(X),p(Z)):-minus(X,Z).
+minus(p(X),s(Z)):-minus(X,Z).
