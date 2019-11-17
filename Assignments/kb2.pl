@@ -7,8 +7,25 @@
 %
 %
 
+%s(A-C):-zeros(CountZ,A-B),ones(CountO,B-C),{CountZ == CountO*2}.
 
+%zeros(NewCount,[]-C):-NewCount = 0.
+%zeros(NewCount,[0|T]-D):-zeros(OldCount,T-D),{NewCount is OldCount + 1}.
+%zeros(NewCount,[_|T]-D):-zeros(OldCount,T-D).
 
+%ones(NewCount,[]-C):-NewCount = 0.
+%ones(NewCount,[1|T]-D):-ones(OldCount,T-D),{NewCount is OldCount + 1}.
+%ones(NewCount,[_|T]-D):-ones(OldCount,T-D).
+
+s --> zeros(CountZ),[2],ones(CountO),{CountZ =:= CountO*2}.
+
+zeros(0) --> [].
+zeros(NewCount) --> [0], zeros(Count), {NewCount is Count + 1}.
+zeros(Count) --> [1], zeros(Count).
+
+ones(0) --> [].
+ones(NewCount) --> [1], ones(Count), {NewCount is Count + 1}.   
+ones(Count) --> [0], ones(Count).
 
 % Question 2
 % (∗) three neighbouring houses that all have a different colour, namely red,
