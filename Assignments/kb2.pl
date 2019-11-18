@@ -1,13 +1,9 @@
-:- use_module(library(gui_tracer)).
-
 % Question 1
 % Write a DCG that accepts strings of the form u2v where u and v are strings
 % over the alphabet {0, 1} such that the number of 0’s in u is twice the number
 % of 1’s in v. For example,
 %
 % ?- s([0,1,0,1,2,0,0,1,0],L).
-%
-%
 
 s --> zeros(CountZ),[2],ones(CountO),{CountZ =:= CountO*2}.
 
@@ -46,12 +42,14 @@ pet([zebra]) --> [zebra].
 % Question 3
 % Write a DCG that given a non-negative integer Sum, accepts lists of integers
 % ≥ 1 that add up to Sum.
+%
+% Make an alphabet of potential numbers using mkList. Then using the Accumulator to 
+% keep track of the current sum recursively add elements to our resulting list until
+% the accumulator value hits 0. If we get to 0 then return list.
+%
 
-sum(Number)--> [Number].
-sum(Number)--> [X], {mkList(Number,L), member(X,L), R is Number-X, R\=0}, sum(R).
-
-nextLargestNum(Num, [H|[]], H).
-nextLargestNum(Num, [H|T], Result):-Result = CurrentResult,CurrentResult<Num,nextLargestNum(Num, T, CurrentResult);nextLargestNum(Num, T, _).
+sum(0) --> [].
+sum(Number)--> [X], {mkList(Number,Alphabet), member(X,Alphabet), Accumulator is Number-X, Accumulator>=0}, sum(Accumulator).
 
 %mkList(1) --> [1].
 %mkList(Digit) -->[Digit], mkList(Ddigit), {Digit is Ddigit+1}, {Digit > -1}.
