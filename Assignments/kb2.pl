@@ -1,3 +1,5 @@
+:- use_module(library(gui_tracer)).
+
 % Question 1
 % Write a DCG that accepts strings of the form u2v where u and v are strings
 % over the alphabet {0, 1} such that the number of 0’s in u is twice the number
@@ -45,14 +47,13 @@ pet([zebra]) --> [zebra].
 % Write a DCG that given a non-negative integer Sum, accepts lists of integers
 % ≥ 1 that add up to Sum.
 
-%mkList(1) --> [1].
-%mkList(Digit) -->[Digit], mkList(Ddigit), {Digit is Ddigit+1}, {Digit > -1}.
-
 sum(Number)--> [Number].
 sum(Number)--> [X], {mkList(Number,L), member(X,L), R is Number-X, R\=0}, sum(R).
 
 nextLargestNum(Num, [H|[]], H).
 nextLargestNum(Num, [H|T], Result):-Result = CurrentResult,CurrentResult<Num,nextLargestNum(Num, T, CurrentResult);nextLargestNum(Num, T, _).
 
+%mkList(1) --> [1].
+%mkList(Digit) -->[Digit], mkList(Ddigit), {Digit is Ddigit+1}, {Digit > -1}.
 mkList(1, [1]).
 mkList(Digit, [Digit|Tail]) :- Digit > 0, Ddigit is Digit-1, mkList(Ddigit, Tail).
