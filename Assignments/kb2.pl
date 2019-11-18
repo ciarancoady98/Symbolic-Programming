@@ -7,16 +7,6 @@
 %
 %
 
-%s(A-C):-zeros(CountZ,A-B),ones(CountO,B-C),{CountZ == CountO*2}.
-
-%zeros(NewCount,[]-C):-NewCount = 0.
-%zeros(NewCount,[0|T]-D):-zeros(OldCount,T-D),{NewCount is OldCount + 1}.
-%zeros(NewCount,[_|T]-D):-zeros(OldCount,T-D).
-
-%ones(NewCount,[]-C):-NewCount = 0.
-%ones(NewCount,[1|T]-D):-ones(OldCount,T-D),{NewCount is OldCount + 1}.
-%ones(NewCount,[_|T]-D):-ones(OldCount,T-D).
-
 s --> zeros(CountZ),[2],ones(CountO),{CountZ =:= CountO*2}.
 
 zeros(0) --> [].
@@ -51,4 +41,18 @@ pet([snail]) --> [snail].
 pet([zebra]) --> [zebra]. 
 
 
+% Question 3
+% Write a DCG that given a non-negative integer Sum, accepts lists of integers
+% ≥ 1 that add up to Sum.
 
+%mkList(1) --> [1].
+%mkList(Digit) -->[Digit], mkList(Ddigit), {Digit is Ddigit+1}, {Digit > -1}.
+
+sum(Number)--> [Number].
+sum(Number)--> [X], {mkList(Number,L), member(X,L), R is Number-X, R\=0}, sum(R).
+
+nextLargestNum(Num, [H|[]], H).
+nextLargestNum(Num, [H|T], Result):-Result = CurrentResult,CurrentResult<Num,nextLargestNum(Num, T, CurrentResult);nextLargestNum(Num, T, _).
+
+mkList(1, [1]).
+mkList(Digit, [Digit|Tail]) :- Digit > 0, Ddigit is Digit-1, mkList(Ddigit, Tail).
