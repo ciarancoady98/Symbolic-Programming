@@ -1,4 +1,5 @@
-% Author: Ciarán Coady
+% Author: Ciarán Coady 
+% Student Number: 17326951
 
 % Question 1
 % Write a DCG that accepts strings of the form u2v where u and v are strings
